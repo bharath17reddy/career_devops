@@ -1,136 +1,141 @@
-# Режим: interview-prep — Подготовка к собеседованию
+# Mode: interview-prep — Company-Specific Interview Intelligence
 
-Когда пользователь просит подготовиться к собеседованию в конкретной компании, или оценка ≥ 4.0 и статус обновлён на `Interview`.
+When the user asks to prep for an interview at a specific company+role, or when an evaluation scores 4.0+ and the user updates status to `Interview`, run this mode.
 
-## Входные данные
+## Inputs
 
-1. **Название компании** и **должность** (обязательно)
-2. **Отчёт оценки** в `reports/` (если есть)
-3. **Банк историй** `interview-prep/story-bank.md`
-4. **CV** `cv.md` + `article-digest.md`
-5. **Профиль** `config/profile.yml` + `modes/_profile.md`
+1. **Company name** and **role title** (required)
+2. **Evaluation report** in `reports/` (if exists) — read for archetype, gaps, matched proof points
+3. **Story bank** at `interview-prep/story-bank.md` — read for existing prepared stories
+4. **CV** at `cv.md` + `article-digest.md` — read for proof points
+5. **Profile** at `config/profile.yml` + `modes/_profile.md` — read for candidate context
 
-## Шаг 1 — Исследование
+## Step 1 — Research
 
-WebSearch-запросы. Извлекать структурированные данные, не пересказы. Цитировать источники.
+Run these WebSearch queries. Extract structured data, not summaries. Cite sources for every claim.
 
-| Запрос | Что извлечь |
-|--------|-------------|
-| `"{company} {role} interview questions site:glassdoor.com"` | Реальные вопросы, сложность, таймлайн, кол-во раундов |
-| `"{company} interview process site:teamblind.com"` | Описания процесса, данные о компенсации |
-| `"{company} {role} interview site:leetcode.com/discuss"` | Конкретные задачи, темы system design |
-| `"{company} engineering blog"` | Стек, ценности, технические приоритеты |
-| `"{company} собеседование отзывы site:habr.com"` | Отзывы на русском о процессе собеседования |
-| `"{company} отзывы собеседование site:hh.ru"` | Отзывы кандидатов на hh.ru |
+| Query | What to extract |
+|-------|-----------------|
+| `"{company} {role} interview questions site:glassdoor.com"` | Actual questions asked, difficulty rating, experience rating, process timeline, number of rounds, offer/reject ratio |
+| `"{company} interview process site:teamblind.com"` | Candid process descriptions, recent data points, comp negotiation details, hiring bar |
+| `"{company} {role} interview site:leetcode.com/discuss"` | Specific coding/technical problems, system design topics, round structure |
+| `"{company} engineering blog"` | Tech stack, values, what they publish about, technical priorities |
+| `"{company} interview process {role}"` (general) | Fills gaps from above — blog posts, YouTube, prep guides, candidate write-ups |
 
-**НЕ выдумывать вопросы.** Выведенные из JD — помечать `[выведено из JD]`.
+If the company is small or obscure and yields few results, broaden: search for the role archetype at similar-stage companies, and note that intel is sparse.
 
-## Шаг 2 — Обзор процесса
+**Do NOT fabricate questions.** If a source says "they asked about distributed systems," report that. Do not invent a specific distributed systems question. When generating likely questions from JD analysis, label them clearly as `[inferred from JD]` not sourced from candidates.
 
-```markdown
-## Обзор процесса
-- **Раунды:** {N} раундов, ~{X} дней от начала до конца
-- **Формат:** {напр., скрининг HR → техническое интервью → тестовое → onsite → нанимающий менеджер}
-- **Сложность:** {X}/5 (среднее Glassdoor, N отзывов)
-- **Позитивный опыт:** {X}%
-- **Особенности:** {напр., "парное программирование вместо доски", "без LeetCode, только практические задачи"}
-- **Источники:** {ссылки}
-```
-
-## Шаг 3 — Разбор по раундам
+## Step 2 — Process Overview
 
 ```markdown
-### Раунд {N}: {Тип}
-- **Длительность:** {X} мин
-- **Проводит:** {коллега / менеджер / skip-level / рекрутер}
-- **Что оценивают:** {конкретные навыки}
-- **Зафиксированные вопросы:**
-  - {вопрос} — [источник: Glassdoor 2026-Q1]
-- **Как готовиться:** {1-2 конкретных действия}
+## Process Overview
+- **Rounds:** {N} rounds, ~{X} days end-to-end
+- **Format:** {e.g., recruiter screen → technical phone → take-home → onsite (4 rounds) → hiring manager}
+- **Difficulty:** {X}/5 (Glassdoor avg, N reviews)
+- **Positive experience rate:** {X}%
+- **Known quirks:** {e.g., "pair programming instead of whiteboard", "no LeetCode, all practical", "take-home is 4 hours"}
+- **Sources:** {links}
 ```
 
-## Шаг 4 — Вероятные вопросы
+If data is insufficient for any field, write "unknown — not enough data" rather than guessing.
 
-### Технические
-Вопросы по system design, кодированию, архитектуре, domain knowledge.
+## Step 3 — Round-by-Round Breakdown
 
-### Поведенческие
-Вопросы про лидерство, конфликты, коллаборацию, неудачи.
-Для каждого — какая история из `story-bank.md` подходит лучше всего.
-
-### Специфичные для роли
-Вопросы, привязанные к конкретному JD (с учётом архетипа).
-
-### Red flags в бэкграунде
-Вопросы, которые интервьюер вероятно задаст про пробелы, переходы или необычные элементы в бэкграунде. Читать `_profile.md` и `cv.md`.
-
-## Шаг 5 — Маппинг банка историй
-
-| # | Вероятный вопрос/тема | Лучшая история из story-bank.md | Fit | Пробел? |
-|---|----------------------|-------------------------------|-----|---------|
-
-- **strong**: история прямо отвечает на вопрос
-- **partial**: история смежная, нужен рефрейминг
-- **none**: нет подходящей → отметить для пользователя
-
-## Шаг 6 — Чеклист технической подготовки
+For each round discovered in research:
 
 ```markdown
-- [ ] {тема} — почему: "{доказательство из исследования}"
-- [ ] {тема} — почему: "{их блог/продукт говорит, что это важно}"
+### Round {N}: {Type}
+- **Duration:** {X} min
+- **Conducted by:** {peer / manager / skip-level / recruiter — if known}
+- **What they evaluate:** {specific skills or traits}
+- **Reported questions:**
+  - {question} — [source: Glassdoor 2026-Q1]
+  - {question} — [source: Blind]
+- **How to prepare:** {1-2 concrete actions}
 ```
 
-Приоритизировать по частоте и релевантности. Максимум 10 пунктов.
+If round structure is unknown, state that and provide the best available intel on what types of rounds to expect based on company size, stage, and role level.
 
-## Шаг 7 — Сигналы компании
+## Step 4 — Likely Questions
 
-- **Ценности, на которые скринят:** назвать, цитировать источник
-- **Словарь для использования:** внутренние термины компании
-- **Чего избегать:** анти-паттерны из отзывов
-- **Вопросы им:** 2-3 острых вопроса, демонстрирующих домашнюю работу
+Categorize all discovered and inferred questions:
 
-## Специфика российских собеседований 🇷🇺
+### Technical
+Questions about system design, coding, architecture, domain knowledge.
+For each: the question, source, and what a strong answer looks like for this candidate specifically (reference CV proof points).
 
-### Типичные раунды в российских компаниях
-1. **Скрининг HR** (20-30 мин): мотивация, зарплатные ожидания, готовность к переезду/формату
-2. **Техническое интервью** (60-90 мин): алгоритмы, system design, знание стека
-3. **Live coding** (45-60 мин): задачи на алгоритмы или практические задачи
-4. **System design** (60 мин): проектирование систем (особенно Яндекс, Авито, VK, Ozon, Т-Банк)
-5. **Культурный fit** (30-45 мин): ценности, командная работа, конфликты
-6. **Бар-рейзер** (в крупных компаниях): финальное одобрение от senior-инженера
+### Behavioral
+Questions about leadership, conflict, collaboration, failure.
+For each: the question, source, and which story from `story-bank.md` maps best.
 
-### Частые вопросы на российских собеседованиях
-- "Расскажите о себе" (2-3 минуты, структурированно)
-- "Почему уходите с текущего места?"
-- "Зарплатные ожидания?" (уточнить gross/net)
-- "Готовность к переезду / формату работы?"
-- "Расскажите о самом сложном проекте"
-- "Как решаете конфликты в команде?"
-- System design: "Спроектируйте {URL shortener / чат / лента новостей / платёжная система}"
+### Role-Specific
+Questions tied to the specific job description (archetype-aware).
+For each: the question, why they're likely asking it (what JD requirement it maps to), and the candidate's best angle.
 
-### Формат STAR+R на русском
-- **С (Ситуация):** Контекст и вводные
-- **З (Задача):** Что нужно было сделать
-- **Д (Действия):** Что конкретно сделал
-- **Р (Результат):** Измеримый результат
-- **О (Осмысление):** Что понял, что сделал бы иначе
+### Background Red Flags
+Questions the interviewer will probably ask about gaps, transitions, or unusual elements in the candidate's background. Read `_profile.md` and `cv.md` to identify what might raise questions.
+For each: the likely question, why it comes up, and a recommended framing (honest, specific, forward-looking — never defensive).
 
-## Вывод
+## Step 5 — Story Bank Mapping
 
-Сохранить отчёт в `interview-prep/{company-slug}-{role-slug}.md`.
+| # | Likely question/topic | Best story from story-bank.md | Fit | Gap? |
+|---|----------------------|-------------------------------|-----|------|
+| 1 | ... | [Story Title] | strong/partial/none | |
+
+- **strong**: story directly answers the question
+- **partial**: story is adjacent, needs reframing
+- **none**: no existing story — flag for the user
+
+For each gap, suggest: "You need a story about {topic}. Consider: {specific experience from cv.md that could become a STAR+R story}."
+
+If the user wants to draft missing stories, help them build STAR+R format and append to `interview-prep/story-bank.md`.
+
+## Step 6 — Technical Prep Checklist
+
+Based on what the company actually tests, not generic advice:
 
 ```markdown
-# Подготовка к собеседованию: {Компания} — {Роль}
-
-**Отчёт:** {ссылка на отчёт оценки или "N/A"}
-**Исследовано:** {YYYY-MM-DD}
-**Источники:** {N} отзывов Glassdoor, {N} постов Blind, {N} прочих
+- [ ] {topic} — why: "{evidence from research}"
+- [ ] {topic} — why: "{their blog/product suggests this matters}"
+- [ ] {topic} — why: "{asked in N/M recent Glassdoor reviews}"
 ```
 
-## Правила
+Prioritize by frequency and relevance to the role. Max 10 items.
 
-- **НИКОГДА не выдумывать вопросы и приписывать их источникам.**
-- **НИКОГДА не фабриковать рейтинги Glassdoor.**
-- **Цитировать всё.** Каждый вопрос, каждая статистика получает источник или тег `[выведено]`.
-- Генерировать на языке JD (RU по умолчанию для русскоязычных вакансий).
-- Быть прямым. Это рабочий документ подготовки, не мотивационная речь.
+## Step 7 — Company Signals
+
+Things to say, do, and avoid based on research:
+
+- **Values they screen for:** name them, cite source (careers page, blog, Glassdoor reviews)
+- **Vocabulary to use:** terms the company uses internally — shows homework (e.g., Stripe says "increase the GDP of the internet", Anthropic says "safety" not "alignment")
+- **Things to avoid:** specific anti-patterns flagged in interview reviews
+- **Questions to ask them:** 2-3 sharp questions that demonstrate you've researched the company, tied to recent news or blog posts discovered in Step 1
+
+## Output
+
+Save the full report to `interview-prep/{company-slug}-{role-slug}.md` with this header:
+
+```markdown
+# Interview Intel: {Company} — {Role}
+
+**Report:** {link to evaluation report if exists, or "N/A"}
+**Researched:** {YYYY-MM-DD}
+**Sources:** {N} Glassdoor reviews, {N} Blind posts, {N} other
+```
+
+## Post-Research
+
+After delivering the report:
+
+1. Ask the user if they want to draft stories for any gaps found in Step 5
+2. If they have a scheduled interview date, note it: "Your interview is in {X} days. Want me to set a reminder to review this prep?"
+3. Suggest running `deep` mode if the company research in Step 1 was thin — deep mode covers strategy, culture, and competitive landscape in more depth
+
+## Rules
+
+- **NEVER invent interview questions and attribute them to sources.** Inferred questions must be labeled `[inferred from JD]`.
+- **NEVER fabricate Glassdoor ratings or statistics.** If the data isn't there, say so.
+- **Cite everything.** Every question, every stat, every claim gets a source or an `[inferred]` tag.
+- Generate in the language of the JD (EN default).
+- Be direct. This is a working prep document, not a pep talk.

@@ -3,14 +3,14 @@
 # This is the single source of truth for your personal data across all modes.
 
 candidate:
-  full_name: "Jane Smith"
-  email: "jane@example.com"
-  phone: "+1-555-0123"
-  location: "San Francisco, CA"
-  linkedin: "linkedin.com/in/janesmith"
-  portfolio_url: "https://janesmith.dev"
-  github: "github.com/janesmith"
-  twitter: "https://x.com/janesmith"
+  full_name: "Bharath Reddy Paidala"
+  email: "bharath7757@gmail.com"
+  phone: "+91-8688739678"
+  location: "Hyderabad, Telangana, India"
+  linkedin: "www.linkedin.com/in/venkata-bharath-reddy"
+  portfolio_url: "https://bharath17reddy.github.io/bharath_portfolio/"
+  github: "https://github.com/bharath17reddy"
+  
   # (Optional) Canva resume design ID for visual CV generation via /career-ops pdf.
   # Find it in your Canva design URL: https://www.canva.com/design/DAxxxxxxx/...
   # The ID starts with "D" and is 11 characters long.
@@ -19,53 +19,75 @@ candidate:
 target_roles:
   # Your North Star roles — what you're optimizing for
   primary:
-    - "Senior AI Engineer"
-    - "Staff ML Engineer"
+    - "DevOps Engineer"
+    - "AI DevOps Engineer"
+    - "Platform Engineer"
+    - "Cloud Engineer"
+    - "Site Reliability Engineer"
+    - "Cloud Infrastructure Engineer"
+    - "Cloud Operations Engineer"
+    - "Cloud Platform Engineer"
+    - "Cloud Systems Engineer"
+    - "Cloud Network Engineer"
   # Archetypes help the evaluation system score fit
   archetypes:
-    - name: "AI/ML Engineer"
-      level: "Senior/Staff"
+    - name: "Platform Engineer"
+      level: "Mid-Senior"
       fit: "primary"        # primary = dream role, secondary = good fit, adjacent = stretch
-    - name: "AI Product Manager"
-      level: "Senior"
+    - name: "Site Reliability Engineer (SRE)"
+      level: "Mid-Senior"
+      fit: "primary"
+    - name: "DevOps Engineer"
+      level: "Mid-Senior"
+      fit: "primary"
+    - name: "Cloud Infrastructure Engineer"
+      level: "Mid-Senior"
       fit: "secondary"
-    - name: "Solutions Architect"
+    - name: "Cloud Network Engineer"
+      level: "Mid-Senior"
+      fit: "secondary"
+    - name: "Cloud Security / DevSecOps Engineer"
+      level: "Mid-Senior"
+      fit: "adjacent"
+    - name: "Kubernetes / Infrastructure Engineer"
       level: "Mid-Senior"
       fit: "adjacent"
 
 narrative:
   # Your professional headline (1 line)
-  headline: "ML Engineer turned AI product builder"
+  headline: "DevOps / Cloud / Platform Engineer"
   # Your exit story — what makes you unique
-  exit_story: "Built and sold my SaaS after 5 years. Now focused on applied AI at scale."
+  exit_story: "DevOps/Cloud engineer focused on building reliable, secure infrastructure and automated delivery pipelines for scalable systems."
   # Your top 3-5 superpowers
   superpowers:
-    - "End-to-end ML pipelines"
-    - "Fast prototyping (idea to prod in 2 weeks)"
-    - "Cross-functional communication"
+    - "Infrastructure as Code (Terraform) and cloud fundamentals"
+    - "Kubernetes/container platform operations and automation"
+    - "CI/CD pipelines, release automation, and developer enablement"
+    - "Observability (metrics/logs/traces) and incident response"
   # Proof points — projects, articles, case studies with measurable impact
   proof_points:
-    - name: "Project Alpha"
-      url: "https://janesmith.dev/project-alpha"
-      hero_metric: "Reduced inference latency 40%"
-    - name: "Open Source Tool"
-      url: "https://github.com/janesmith/tool"
-      hero_metric: "2K+ GitHub stars"
+    - name: "DevOps/Cloud Portfolio"
+      url: "https://bharath17reddy.github.io/bharath_portfolio/"
+      hero_metric: "Hands-on projects across cloud, automation, and platform tooling"
+    - name: "GitHub Projects"
+      url: "https://github.com/bharath17reddy"
+      hero_metric: "Public repos showcasing IaC/automation and engineering work"
   # Optional: dashboard/demo URL with credentials
   # dashboard:
   #   url: "https://janesmith.dev/demo"
   #   password: "demo-2026"
 
 compensation:
-  target_range: "$150K-200K"     # Your target total comp
-  currency: "USD"
-  minimum: "$120K"               # Walk-away number
-  location_flexibility: "Remote preferred, 1 week/month on-site possible"
+  target_range: "₹16 LPA"     # Your target total comp
+  currency: "INR"
+  minimum: "₹16 LPA"               # Walk-away number
+  location_flexibility: "Hyderabad/Bangalore preferred; remote/hybrid OK"
 
 location:
-  country: "United States"
-  city: "San Francisco"
-  timezone: "PST"
-  visa_status: "No sponsorship needed"
+  country: "India"
+  city: "Hyderabad, Bangalore"
+  timezone: "IST"
+  visa_status: "N/A"
   # For remote roles outside your country:
   # onsite_availability: "1 week/month in any city"
+

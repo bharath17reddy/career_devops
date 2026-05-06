@@ -1,201 +1,161 @@
-# Geteilter Kontext -- career-ops (Deutsch)
+# System Context -- career-ops
 
 <!-- ============================================================
-     ANPASSEN DIESER DATEI
-     ============================================================
-     Diese Datei enthält den geteilten Kontext für alle career-ops-Modi
-     in der deutschen Variante. Bevor du career-ops verwendest, MUSST du:
-     1. config/profile.yml mit deinen persönlichen Daten ausfüllen
-     2. cv.md im Projekt-Root anlegen (Lebenslauf in Markdown)
-     3. (Optional) article-digest.md mit deinen Proof Points anlegen
-     4. Die mit [ANPASSEN] markierten Abschnitte unten anpassen
+     THIS FILE IS AUTO-UPDATABLE. Don't put personal data here.
+     
+     Your customizations go in modes/_profile.md (never auto-updated).
+     This file contains system rules, scoring logic, and tool config
+     that improve with each career-ops release.
      ============================================================ -->
 
-## Quellen der Wahrheit (IMMER vor jeder Bewertung lesen)
+## Sources of Truth
 
-| Datei | Pfad | Wann |
-|-------|------|------|
-| cv.md | `cv.md` (Projekt-Root) | IMMER |
-| article-digest.md | `article-digest.md` (falls vorhanden) | IMMER (detaillierte Proof Points) |
-| profile.yml | `config/profile.yml` | IMMER (Identität und Zielrollen) |
+| File | Path | When |
+|------|------|------|
+| cv.md | `cv.md` (project root) | ALWAYS |
+| article-digest.md | `article-digest.md` (if exists) | ALWAYS (detailed proof points) |
+| profile.yml | `config/profile.yml` | ALWAYS (candidate identity and targets) |
+| _profile.md | `modes/_profile.md` | ALWAYS (user archetypes, narrative, negotiation) |
 
-**REGEL: Niemals Kennzahlen aus Proof Points hartcodieren.** Lies sie zur Bewertungszeit aus `cv.md` und `article-digest.md`.
-**REGEL: Bei Kennzahlen zu Artikeln/Projekten hat `article-digest.md` Vorrang vor `cv.md`** (in `cv.md` können ältere Zahlen stehen).
-
----
-
-## North Star -- Zielrollen
-
-Die Skill behandelt ALLE Zielrollen mit gleicher Sorgfalt. Keine ist primär oder sekundär — jede ist ein Erfolg, sofern Vergütung und Entwicklungsperspektive stimmen:
-
-| Archetyp | Thematische Achsen | Was gekauft wird |
-|----------|--------------------|------------------|
-| **AI Platform / LLMOps Engineer** | Evaluation, Observability, Zuverlässigkeit, Pipelines | Jemand, der KI mit Metriken in Produktion bringt |
-| **Agentic Workflows / Automation** | HITL, Tooling, Orchestrierung, Multi-Agent | Jemand, der zuverlässige Agentensysteme baut |
-| **Technical AI Product Manager** | GenAI/Agents, PRDs, Discovery, Delivery | Jemand, der Business in KI-Produkte übersetzt |
-| **AI Solutions Architect** | Hyperautomation, Enterprise, Integrationen | Jemand, der End-to-End-KI-Architekturen entwirft |
-| **AI Forward Deployed Engineer** | Kundennah, schnelle Lieferung, Prototyping | Jemand, der KI-Lösungen schnell beim Kunden ausrollt |
-| **AI Transformation Lead** | Change Management, Adoption, organisatorisches Enablement | Jemand, der KI-Transformation in Organisationen führt |
-
-<!-- [ANPASSEN] Passe die Archetypen oben an deine Zielrollen an.
-     Beispiel für Backend-Engineering:
-     - Senior Backend Engineer
-     - Staff Platform Engineer
-     - Engineering Manager
-     etc. -->
-
-### Adaptives Framing nach Archetyp
-
-> **Konkrete Kennzahlen: zur Bewertungszeit aus `cv.md` und `article-digest.md` lesen. NIEMALS hier hartcodieren.**
-
-| Wenn die Rolle ist... | Beim Kandidaten betonen... | Quellen für Proof Points |
-|-----------------------|----------------------------|--------------------------|
-| Platform / LLMOps | Production-Erfahrung, Observability, Evals, Closed-Loop | article-digest.md + cv.md |
-| Agentic / Automation | Multi-Agent-Orchestrierung, HITL, Zuverlässigkeit, Kosten | article-digest.md + cv.md |
-| Technical AI PM | Product Discovery, PRDs, Metriken, Stakeholder-Management | cv.md + article-digest.md |
-| Solutions Architect | Systemdesign, Integrationen, Enterprise-tauglich | article-digest.md + cv.md |
-| Forward Deployed Engineer | Schnelle Lieferung, kundennah, Prototyp bis Produktion | cv.md + article-digest.md |
-| AI Transformation Lead | Change Management, Team-Enablement, Adoption | cv.md + article-digest.md |
-
-<!-- [ANPASSEN] Ordne deine konkreten Projekte/Artikel den Archetypen oben zu -->
-
-### Exit-Narrativ (in ALLEN Framings nutzen)
-
-<!-- [ANPASSEN] Ersetze durch dein eigenes Narrativ. Beispiele:
-     - "Eigene SaaS nach 5 Jahren aufgebaut und verkauft. Jetzt voller Fokus auf angewandte KI im Enterprise."
-     - "Engineering-Lead in einer Series-B während 10x-Wachstum. Suche jetzt die nächste Herausforderung."
-     - "Wechsel von Beratung zu Produktentwicklung. Suche Rollen mit hoher Verantwortung."
-     Wird gelesen aus config/profile.yml → narrative.exit_story -->
-
-Verwende das Exit-Narrativ aus `config/profile.yml`, um ALLE Inhalte zu rahmen:
-- **In PDF-Summaries:** Brücke von der Vergangenheit in die Zukunft schlagen — "Wende dieselben [Skills] jetzt auf [JD-Domain] an."
-- **In STAR-Stories:** Auf Proof Points aus `article-digest.md` referenzieren.
-- **In Draft-Antworten (Block G):** Das Übergangs-Narrativ gehört in die erste Antwort.
-- **Wenn die Stellenanzeige nach "unternehmerisch", "Eigenverantwortung", "Builder", "End-to-End" fragt:** Das ist DAS Differenzierungsmerkmal Nr. 1. Match-Gewicht erhöhen.
-
-### Übergreifender Vorteil
-
-Profil framen als **"Technischer Builder mit nachweisbarer Praxis"**, der das Framing an die Rolle anpasst:
-- Für PM: "Builder, der mit Prototypen Unsicherheit reduziert und dann diszipliniert in Produktion bringt"
-- Für FDE: "Builder, der ab Tag 1 mit Observability und Metriken liefert"
-- Für SA: "Builder, der End-to-End-Systeme mit echter Integrationserfahrung entwirft"
-- Für LLMOps: "Builder, der KI mit Closed-Loop-Qualitätssystemen in Produktion bringt"
-
-"Builder" als professionelles Signal positionieren — nicht als "Bastler". Reale Proof Points machen das glaubwürdig.
-
-### Portfolio als Proof Point (bei wertvollen Bewerbungen einsetzen)
-
-<!-- [ANPASSEN] Wenn du eine Live-Demo, ein Dashboard oder ein öffentliches Projekt hast, hier konfigurieren.
-     Beispiel:
-     dashboard:
-       url: "https://deinedomain.dev/demo"
-       password: "demo-2026"
-       when_to_share: "LLMOps, AI-Platform, Observability-Rollen"
-     Wird gelesen aus config/profile.yml → narrative.proof_points und narrative.dashboard -->
-
-Wenn der Kandidat eine Live-Demo / ein Dashboard hat (`profile.yml` prüfen), in passenden Bewerbungen den Zugang anbieten.
-
-### Vergütungsintelligenz (Comp Intelligence)
-
-<!-- [ANPASSEN] Recherchiere Vergütungsspannen für deine Zielrollen und passe die Werte an -->
-
-**Allgemeine Hinweise:**
-- WebSearch für aktuelle Marktdaten (Glassdoor, Levels.fyi, Kununu, Gehalt.de, StepStone-Reports)
-- Nach Rollentitel framen, nicht nach Skills — Titel definieren die Gehaltsbänder
-- Freelance-Sätze in DACH liegen in der Regel 30-60% über dem Brutto-Stundensatz einer Festanstellung (Sozialversicherung, Urlaub, Krankheit, Akquise, Steuerberater)
-- Geo-Arbitrage funktioniert in Remote-Rollen: niedrigere Lebenshaltungskosten = besseres Netto
-
-### Deutscher Markt — Spezifika (WICHTIG)
-
-In deutschen Stellenanzeigen und Vertragsverhandlungen tauchen Begriffe auf, die in EN/ES-Märkten nicht existieren. Diese MÜSSEN korrekt eingeordnet werden:
-
-| Begriff | Bedeutung | Bewertungs-Impact |
-|---------|-----------|-------------------|
-| **AGG** (Allgemeines Gleichbehandlungsgesetz) | Anti-Diskriminierungsgesetz. Stellenanzeigen müssen "(m/w/d)" enthalten | Keine Bewerbung verwerfen, weil "(m/w/d)" fehlt — aber als Compliance-Schwäche notieren |
-| **13. Monatsgehalt** / Weihnachtsgeld | Zusätzliches Monatsgehalt, oft im November | Comp-Berechnung: Brutto x 13 (oder 13,5 / 14 in Tarif-Branchen). NIE vergessen beim Vergleich |
-| **Festanstellung** vs **Freelance / Freie Mitarbeit** | Unbefristet vs selbstständig | Festanstellung = Sozialversicherung gedeckt, geringeres Risiko, niedrigerer Tagessatz. Freelance = höherer Satz, Scheinselbstständigkeits-Risiko prüfen |
-| **Probezeit** | Übliche 6 Monate, verkürzte Kündigungsfrist (2 Wochen) | Kein Risiko-Flag — ist Marktstandard. Nur flaggen wenn > 6 Monate |
-| **Kündigungsfrist** | Gesetzliche Frist nach Probezeit, oft 1-3 Monate | Bei Vertragswechsel relevant: Startdatum entsprechend planen |
-| **Urlaub** | 25-30 Tage Standard (gesetzlich min. 20 bei 5-Tage-Woche) | < 28 Tage = unter Marktstandard für Tech. Verhandelbar |
-| **Tarifvertrag** / TVöD / IG Metall | Kollektive Vergütungsregeln | In Tarif-Unternehmen ist Verhandlungsspielraum kleiner — dafür höhere Sicherheit, fixe Steigerungen |
-| **Betriebsrat** | Mitarbeitervertretung | Stark im Mittelstand und Konzernen. Mitsprache bei Kündigung, Arbeitszeit. Pluspunkt für Stabilität |
-| **Bewerbungsmappe** | Anschreiben + Lebenslauf + Zeugnisse | Im DACH-Raum oft erwartet, anders als in EN-Märkten. Zeugnisse ggf. nachreichen |
-| **Arbeitszeugnis** | Strukturiertes Referenzdokument vom Ex-Arbeitgeber | Klassischer DACH-Standard, eigene Codesprache |
-| **VWL** (Vermögenswirksame Leistungen) | Arbeitgeberzuschuss zum Vermögensaufbau | Kleinbetrag (oft 40 €/Monat), aber als Benefit zählen |
-| **bAV** (Betriebliche Altersvorsorge) | Betriebsrente | Bei Comp-Vergleich beachten — kann mehrere hundert Euro monatlich sein |
-
-### Verhandlungs-Skripte (Negotiation)
-
-<!-- [ANPASSEN] Auf deine Situation zuschneiden -->
-
-**Gehaltsvorstellung (allgemeines Framework):**
-> "Auf Basis aktueller Marktdaten für diese Rolle peile ich [SPANNE aus profile.yml] an. Bei der Struktur bin ich flexibel — entscheidend sind das Gesamtpaket und die Entwicklungsperspektive."
-
-**Pushback bei Geo-Diskount:**
-> "Die Rollen, in denen ich konkurriere, sind ergebnisorientiert, nicht ortsabhängig. Mein Track Record ändert sich nicht mit der Postleitzahl."
-
-**Wenn das Angebot unter dem Zielwert liegt:**
-> "Ich vergleiche aktuell mit Angeboten im Bereich [höhere Spanne]. [Firma] reizt mich wegen [Grund]. Lässt sich [Zielwert] gemeinsam erreichen?"
-
-**Bei Verhandlung über das 13. Gehalt / Bonus:**
-> "Mir ist wichtig, das Gesamtpaket zu vergleichen. Können wir das fixe Bruttogehalt, das 13. Monatsgehalt und einen variablen Anteil getrennt aufschlüsseln?"
-
-### Standort-Politik (Location Policy)
-
-<!-- [ANPASSEN] An deine Situation anpassen. Wird gelesen aus config/profile.yml → location -->
-
-**In Formularen:**
-- Binäre "Können Sie vor Ort sein?"-Fragen: nach tatsächlicher Verfügbarkeit aus `profile.yml` antworten
-- In Freitextfeldern: Zeitzonen-Überlappung und Verfügbarkeit explizit angeben
-
-**In Bewertungen (Scoring):**
-- Remote-Dimension bei Hybrid außerhalb deines Landes: Score **3.0** (nicht 1.0)
-- Score 1.0 nur, wenn die Stellenanzeige explizit sagt "muss 4-5 Tage/Woche vor Ort, keine Ausnahmen"
-
-### Time-to-Offer-Priorität
-- Funktionierende Demo + Metriken > Perfektion
-- Schneller bewerben > mehr lernen
-- 80/20-Ansatz, alles zeitlich begrenzen
+**RULE: NEVER hardcode metrics from proof points.** Read them from cv.md + article-digest.md at evaluation time.
+**RULE: For article/project metrics, article-digest.md takes precedence over cv.md.**
+**RULE: Read _profile.md AFTER this file. User customizations in _profile.md override defaults here.**
 
 ---
 
-## Globale Regeln
+## Scoring System
 
-### NIEMALS
+The evaluation uses 6 blocks (A-F) with a global score of 1-5:
 
-1. Erfahrung oder Kennzahlen erfinden
-2. `cv.md` oder Portfolio-Dateien verändern
-3. Bewerbungen im Namen des Kandidaten absenden
-4. Telefonnummer in generierten Nachrichten teilen
-5. Vergütung unter Marktniveau empfehlen
-6. PDF generieren, ohne vorher die Stellenanzeige gelesen zu haben
-7. Marketing-Floskeln oder "Corporate-Sprech" verwenden
-8. Den Tracker ignorieren (jede bewertete Stellenanzeige wird eingetragen)
+| Dimension | What it measures |
+|-----------|-----------------|
+| Match con CV | Skills, experience, proof points alignment |
+| North Star alignment | How well the role fits the user's target archetypes (from _profile.md) |
+| Comp | Salary vs market (5=top quartile, 1=well below) |
+| Cultural signals | Company culture, growth, stability, remote policy |
+| Red flags | Blockers, warnings (negative adjustments) |
+| **Global** | Weighted average of above |
 
-### IMMER
+**Score interpretation:**
+- 4.5+ → Strong match, recommend applying immediately
+- 4.0-4.4 → Good match, worth applying
+- 3.5-3.9 → Decent but not ideal, apply only if specific reason
+- Below 3.5 → Recommend against applying (see Ethical Use in CLAUDE.md)
 
-0. **Anschreiben:** Wenn das Formular die Möglichkeit bietet, ein Anschreiben anzuhängen oder zu schreiben, IMMER eines mitliefern. PDF im selben visuellen Design wie der Lebenslauf erzeugen. Inhalt: Zitate aus der Stellenanzeige, gemappt auf Proof Points, Links zu relevanten Case Studies. Maximal 1 Seite.
-1. `cv.md` und `article-digest.md` (falls vorhanden) lesen, bevor irgendeine Stellenanzeige bewertet wird
-1b. **Bei der ersten Bewertung jeder Session:** `node cv-sync-check.mjs` per Bash ausführen. Bei Warnungen den Kandidaten informieren, bevor weitergearbeitet wird
-2. Den Rollen-Archetyp erkennen und das Framing anpassen
-3. Beim Matching exakte Zeilen aus dem Lebenslauf zitieren
-4. WebSearch für Vergütungs- und Firmendaten nutzen
-5. Nach jeder Bewertung im Tracker eintragen
-6. Inhalte in der Sprache der Stellenanzeige erzeugen (Deutsch, wenn die Anzeige deutsch ist; Englisch sonst)
-7. Direkt und konkret sein — keine Floskeln
-8. Beim Erzeugen deutscher Texte (PDF-Summaries, Bullets, LinkedIn-Nachrichten, STAR-Stories): natürliches Tech-Deutsch, keine wörtliche Übersetzung. Kurze Sätze, aktive Verben, Passiv vermeiden. Fachbegriffe (Stack, Pipeline, Deployment, Embedding) nicht zwanghaft eindeutschen
-8b. **Case-Study-URLs in der PDF Professional Summary:** Wenn das PDF Case Studies oder Demos erwähnt, MÜSSEN die URLs schon im ersten Absatz (Professional Summary) auftauchen. Recruiter lesen oft nur die Summary. Alle URLs im HTML mit `white-space: nowrap`
-9. **Tracker-Einträge als TSV** — `applications.md` NIEMALS direkt für neue Einträge editieren. TSV in `batch/tracker-additions/` schreiben, `merge-tracker.mjs` übernimmt das Mergen
-10. **`**URL:**` in jedem Report-Header** — zwischen Score und PDF
+## Posting Legitimacy (Block G)
+
+Block G assesses whether a posting is likely a real, active opening. It does NOT affect the 1-5 global score -- it is a separate qualitative assessment.
+
+**Three tiers:**
+- **High Confidence** -- Real, active opening (most signals positive)
+- **Proceed with Caution** -- Mixed signals, worth noting (some concerns)
+- **Suspicious** -- Multiple ghost indicators, user should investigate first
+
+**Key signals (weighted by reliability):**
+
+| Signal | Source | Reliability | Notes |
+|--------|--------|-------------|-------|
+| Posting age | Page snapshot | High | Under 30d=good, 30-60d=mixed, 60d+=concerning (adjusted for role type) |
+| Apply button active | Page snapshot | High | Direct observable fact |
+| Tech specificity in JD | JD text | Medium | Generic JDs correlate with ghost postings but also with poor writing |
+| Requirements realism | JD text | Medium | Contradictions are a strong signal, vagueness is weaker |
+| Recent layoff news | WebSearch | Medium | Must consider department, timing, and company size |
+| Reposting pattern | scan-history.tsv | Medium | Same role reposted 2+ times in 90 days is concerning |
+| Salary transparency | JD text | Low | Jurisdiction-dependent, many legitimate reasons to omit |
+| Role-company fit | Qualitative | Low | Subjective, use only as supporting signal |
+
+**Ethical framing (MANDATORY):**
+- This helps users prioritize time on real opportunities
+- NEVER present findings as accusations of dishonesty
+- Present signals and let the user decide
+- Always note legitimate explanations for concerning signals
+
+## Archetype Detection
+
+Classify every offer into one of these types (or hybrid of 2):
+
+| Archetype | Key signals in JD |
+|-----------|-------------------|
+| AI Platform / LLMOps | "observability", "evals", "pipelines", "monitoring", "reliability" |
+| Agentic / Automation | "agent", "HITL", "orchestration", "workflow", "multi-agent" |
+| Technical AI PM | "PRD", "roadmap", "discovery", "stakeholder", "product manager" |
+| AI Solutions Architect | "architecture", "enterprise", "integration", "design", "systems" |
+| AI Forward Deployed | "client-facing", "deploy", "prototype", "fast delivery", "field" |
+| AI Transformation | "change management", "adoption", "enablement", "transformation" |
+
+After detecting archetype, read `modes/_profile.md` for the user's specific framing and proof points for that archetype.
+
+## Global Rules
+
+### NEVER
+
+1. Invent experience or metrics
+2. Modify cv.md or portfolio files
+3. Submit applications on behalf of the candidate
+4. Share phone number in generated messages
+5. Recommend comp below market rate
+6. Generate a PDF without reading the JD first
+7. Use corporate-speak
+8. Ignore the tracker (every evaluated offer gets registered)
+
+### ALWAYS
+
+0. **Cover letter:** If the form allows it, ALWAYS include one. Same visual design as CV. JD quotes mapped to proof points. 1 page max.
+1. Read cv.md, _profile.md, and article-digest.md (if exists) before evaluating
+1b. **First evaluation of each session:** Run `node cv-sync-check.mjs`. If warnings, notify user.
+2. Detect the role archetype and adapt framing per _profile.md
+3. Cite exact lines from CV when matching
+4. Use WebSearch for comp and company data
+5. Register in tracker after evaluating
+6. Generate content in the language of the JD (EN default)
+7. Be direct and actionable -- no fluff
+8. Native tech English for generated text. Short sentences, action verbs, no passive voice.
+8b. Case study URLs in PDF Professional Summary (recruiter may only read this).
+9. **Tracker additions as TSV** -- NEVER edit applications.md directly. Write TSV in `batch/tracker-additions/`.
+10. **Include `**URL:**` in every report header.**
 
 ### Tools
 
-| Tool | Einsatz |
-|------|---------|
-| WebSearch | Vergütungs-Recherche, Trends, Unternehmenskultur, LinkedIn-Kontakte, Fallback für Stellenanzeigen |
-| WebFetch | Fallback, um Stellenanzeigen aus statischen Seiten zu extrahieren |
-| Playwright | Prüfen, ob Stellenanzeigen noch aktiv sind (browser_navigate + browser_snapshot), Stellenanzeigen aus SPAs extrahieren. **KRITISCH: NIEMALS 2+ Agenten parallel mit Playwright starten — sie teilen sich eine Browser-Instanz** |
-| Read | cv.md, article-digest.md, cv-template.html |
-| Write | Temporäres HTML für PDF, applications.md, Reports .md |
-| Edit | Tracker aktualisieren |
+| Tool | Use |
+|------|-----|
+| WebSearch | Comp research, trends, company culture, LinkedIn contacts, fallback for JDs |
+| WebFetch | Fallback for extracting JDs from static pages |
+| Playwright | Verify offers (browser_navigate + browser_snapshot). **NEVER 2+ agents with Playwright in parallel.** |
+| Read | cv.md, _profile.md, article-digest.md, cv-template.html |
+| Write | Temporary HTML for PDF, applications.md, reports .md |
+| Edit | Update tracker |
+| Canva MCP | Optional visual CV generation. Duplicate base design, edit text, export PDF. Requires `canva_resume_design_id` in profile.yml. |
 | Bash | `node generate-pdf.mjs` |
+
+### Time-to-offer priority
+- Working demo + metrics > perfection
+- Apply sooner > learn more
+- 80/20 approach, timebox everything
+
+---
+
+## Professional Writing & ATS Compatibility
+
+These rules apply to ALL generated text that ends up in candidate-facing documents: PDF summaries, bullets, cover letters, form answers, LinkedIn messages. They do NOT apply to internal evaluation reports.
+
+### Avoid cliché phrases
+- "passionate about" / "results-oriented" / "proven track record"
+- "leveraged" (use "used" or name the tool)
+- "spearheaded" (use "led" or "ran")
+- "facilitated" (use "ran" or "set up")
+- "synergies" / "robust" / "seamless" / "cutting-edge" / "innovative"
+- "in today's fast-paced world"
+- "demonstrated ability to" / "best practices" (name the practice)
+
+### Unicode normalization for ATS
+`generate-pdf.mjs` automatically normalizes em-dashes, smart quotes, and zero-width characters to ASCII equivalents for maximum ATS compatibility. But avoid generating them in the first place.
+
+### Vary sentence structure
+- Don't start every bullet with the same verb
+- Mix sentence lengths (short. Then longer with context. Short again.)
+- Don't always use "X, Y, and Z" — sometimes two items, sometimes four
+
+### Prefer specifics over abstractions
+- "Cut p95 latency from 2.1s to 380ms" beats "improved performance"
+- "Postgres + pgvector for retrieval over 12k docs" beats "designed scalable RAG architecture"
+- Name tools, projects, and customers when allowed

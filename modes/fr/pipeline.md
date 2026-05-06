@@ -1,63 +1,57 @@
-# Mode : pipeline -- Inbox d'URLs (Second Brain)
+# Modo: pipeline — Inbox de URLs (Second Brain)
 
-Traite les URLs d'offres accumulees dans `data/pipeline.md`. Le candidat ajoute des URLs quand il veut et lance ensuite `/career-ops pipeline` pour toutes les traiter d'un coup.
+Procesa URLs de ofertas acumuladas en `data/pipeline.md`. El usuario agrega URLs cuando quiera y luego ejecuta `/career-ops pipeline` para procesarlas todas.
 
 ## Workflow
 
-1. **Lire** `data/pipeline.md` -> trouver les items `- [ ]` dans la section "En attente" / "Pending" / "Pendientes"
-2. **Pour chaque URL en attente** :
-   a. Calculer le prochain `REPORT_NUM` sequentiel (lire `reports/`, prendre le numero le plus eleve + 1)
-   b. **Extraire l'offre** avec Playwright (`browser_navigate` + `browser_snapshot`) -> WebFetch -> WebSearch
-   c. Si l'URL n'est pas accessible -> marquer comme `- [!]` avec une note et continuer
-   d. **Executer l'auto-pipeline complet** : Evaluation A-F -> Report .md -> PDF (si score >= 3.0) -> Tracker
-   e. **Deplacer de "En attente" vers "Traitees"** : `- [x] #NNN | URL | Entreprise | Role | Score/5 | PDF oui/non`
-3. **Si 3+ URLs en attente**, lancer des agents en parallele (Agent tool avec `run_in_background`) pour maximiser la vitesse.
-4. **A la fin**, afficher un tableau recapitulatif :
+1. **Leer** `data/pipeline.md` → buscar items `- [ ]` en la sección "Pendientes"
+2. **Para cada URL pendiente**:
+   a. Calcular siguiente `REPORT_NUM` secuencial (leer `reports/`, tomar el número más alto + 1)
+   b. **Extraer JD** usando Playwright (browser_navigate + browser_snapshot) → WebFetch → WebSearch
+   c. Si la URL no es accesible → marcar como `- [!]` con nota y continuar
+   d. **Ejecutar auto-pipeline completo**: Evaluación A-F → Report .md → PDF (si score >= 3.0) → Tracker
+   e. **Mover de "Pendientes" a "Procesadas"**: `- [x] #NNN | URL | Empresa | Rol | Score/5 | PDF ✅/❌`
+3. **Si hay 3+ URLs pendientes**, lanzar agentes en paralelo (Agent tool con `run_in_background`) para maximizar velocidad.
+4. **Al terminar**, mostrar tabla resumen:
 
 ```
-| # | Entreprise | Role | Score | PDF | Action recommandee |
+| # | Empresa | Rol | Score | PDF | Acción recomendada |
 ```
 
-## Format de pipeline.md
+## Formato de pipeline.md
 
 ```markdown
-## En attente
+## Pendientes
 - [ ] https://jobs.example.com/posting/123
-- [ ] https://boards.greenhouse.io/company/jobs/456 | Company SAS | Senior PM
-- [!] https://private.url/job -- Erreur : login requis
+- [ ] https://boards.greenhouse.io/company/jobs/456 | Company Inc | Senior PM
+- [!] https://private.url/job — Error: login required
 
-## Traitees
-- [x] #143 | https://jobs.example.com/posting/789 | Acme SAS | AI PM | 4.2/5 | PDF oui
-- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | BigCo | SA | 2.1/5 | PDF non
+## Procesadas
+- [x] #143 | https://jobs.example.com/posting/789 | Acme Corp | AI PM | 4.2/5 | PDF ✅
+- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | BigCo | SA | 2.1/5 | PDF ❌
 ```
 
-> Note : Les en-tetes de section peuvent etre en EN ("Pending"/"Processed"), ES ("Pendientes"/"Procesadas"), DE ("Offen"/"Verarbeitet") ou FR ("En attente"/"Traitees"). Etre flexible a la lecture, fidele au style existant a l'ecriture.
+## Detección inteligente de JD desde URL
 
-## Detection intelligente de l'offre depuis l'URL
+1. **Playwright (preferido):** `browser_navigate` + `browser_snapshot`. Funciona con todas las SPAs.
+2. **WebFetch (fallback):** Para páginas estáticas o cuando Playwright no está disponible.
+3. **WebSearch (último recurso):** Buscar en portales secundarios que indexan el JD.
 
-1. **Playwright (prefere) :** `browser_navigate` + `browser_snapshot`. Fonctionne avec toutes les SPAs.
-2. **WebFetch (fallback) :** Pour les pages statiques ou quand Playwright n'est pas disponible.
-3. **WebSearch (dernier recours) :** Chercher sur des portails secondaires qui indexent l'offre.
+**Casos especiales:**
+- **LinkedIn**: Puede requerir login → marcar `[!]` y pedir al usuario que pegue el texto
+- **PDF**: Si la URL apunta a un PDF, leerlo directamente con Read tool
+- **`local:` prefix**: Leer el archivo local. Ejemplo: `local:jds/linkedin-pm-ai.md` → leer `jds/linkedin-pm-ai.md`
 
-**Cas particuliers :**
-- **LinkedIn** : Peut necessiter un login -> marquer `[!]` et demander au candidat de coller le texte
-- **PDF** : Si l'URL pointe vers un PDF, le lire directement avec le Read tool
-- **Prefixe `local:`** : Lire le fichier local. Exemple : `local:jds/linkedin-pm-ai.md` -> lire `jds/linkedin-pm-ai.md`
-- **Welcome to the Jungle / Indeed FR / APEC** : Portails francophones courants. Playwright gere bien les cookie banners
-- **France Travail (ex-Pole emploi)** : Offres structurees, bien lisibles par machine. WebFetch suffit generalement
+## Numeración automática
 
-## Numerotation automatique
+1. Listar todos los archivos en `reports/`
+2. Extraer el número del prefijo (e.g., `142-medispend...` → 142)
+3. Nuevo número = máximo encontrado + 1
 
-1. Lister tous les fichiers dans `reports/`
-2. Extraire le numero du prefixe (ex : `142-medispend...` -> 142)
-3. Nouveau numero = maximum trouve + 1
+## Sincronización de fuentes
 
-## Synchronisation des sources
-
-Avant de traiter une URL, verifier la sync :
-
+Antes de procesar cualquier URL, verificar sync:
 ```bash
 node cv-sync-check.mjs
 ```
-
-En cas de desynchronisation, alerter le candidat avant de continuer.
+Si hay desincronización, advertir al usuario antes de continuar.

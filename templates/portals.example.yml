@@ -27,52 +27,70 @@
 title_filter:
   positive:
     # [CUSTOMIZE] Add keywords matching YOUR target roles
-    # -- AI/ML roles --
-    - "AI"
-    - "ML"
-    - "LLM"
-    - "Agent"
-    - "Agentic"
-    - "GenAI"
-    - "Generative AI"
-    - "NLP"
-    - "LLMOps"
+    # -- DevOps / SRE / Platform / Infra --
+    - "DevOps"
+    - "SRE"
+    - "Site Reliability"
+    - "Reliability Engineer"
+    - "Platform Engineer"
+    - "Infrastructure"
+    - "Infra"
+    - "Cloud"
+    - "Cloud Engineer"
+    - "Cloud Platform"
+    - "Infrastructure Engineer"
+    - "Systems Engineer"
+    - "Production Engineer"
+    - "Release Engineer"
+    - "Build Engineer"
+    - "CI/CD"
+    - "CI CD"
+    - "GitOps"
+    - "DevSecOps"
+    - "SecOps"
+    - "Kubernetes"
+    - "K8s"
+    - "Docker"
+    - "Terraform"
+    - "Pulumi"
+    - "Infrastructure as Code"
+    - "IaC"
+    - "Observability"
+    - "Monitoring"
+    - "Logging"
+    - "Incident"
+    - "On-call"
+    # -- Cloud providers --
+    - "AWS"
+    - "GCP"
+    - "Google Cloud"
+    - "Azure"
+    # -- AI / ML Platform (infra-adjacent) --
     - "MLOps"
-    - "Voice AI"
-    - "Conversational AI"
-    - "Speech"
-    # -- German AI/ML keywords (DACH market) --
+    - "LLMOps"
+    - "AI Platform"
+    - "ML Platform"
+    - "Model Serving"
+    - "Inference"
+    - "GPU"
+    - "CUDA"
+    - "Distributed Systems"
+    # -- German keywords (DACH market) --
+    - "Cloud Engineer"
+    - "Plattform"
+    - "Site Reliability"
     - "KI"
     - "Künstliche Intelligenz"
-    - "KI Engineer"
-    - "KI Trainer"
-    - "Dozent"
-    - "Weiterbildung"
-    # -- Engineering roles --
-    - "Platform Engineer"
-    - "Solutions Architect"
-    - "Solutions Engineer"
-    - "Forward Deployed"
-    - "Deployed Engineer"
-    - "Customer Engineer"
-    - "Integration Engineer"
-    # -- Product roles --
-    - "Product Manager"
-    - "Technical PM"
-    # -- Automation roles --
-    - "Automation"
-    - "Hyperautomation"
-    - "Low-Code"
-    - "No-Code"
-    - "GTM Engineer"
-    - "RevOps"
-    - "Business Systems"
-    - "Internal Tools"
-    - "Transformation"
   negative:
     # [CUSTOMIZE] Add keywords for roles you want to exclude
     - "Junior"
     - "Intern"
+    - "Sales"
+    - "Account Executive"
+    - "Customer Support"
+    - "Recruiter"
+    - "Talent"
+    - "Marketing"
     - ".NET"
     - "Java "
     - "iOS"
@@ -106,38 +124,34 @@ title_filter:
 
 search_queries:
   # -- Ashby --
-  - name: Ashby — AI PM
-    query: 'site:jobs.ashbyhq.com "AI Product Manager" OR "Senior Product Manager AI" remote'
+  - name: Ashby — DevOps / SRE / Platform
+    query: 'site:jobs.ashbyhq.com ("DevOps" OR "SRE" OR "Site Reliability" OR "Platform Engineer" OR "Infrastructure Engineer") (remote OR "Remote")'
     enabled: true
 
-  - name: Ashby — Solutions Architect
-    query: 'site:jobs.ashbyhq.com "Solutions Architect" AI OR automation remote'
+  - name: Ashby — Cloud / Kubernetes / Terraform
+    query: 'site:jobs.ashbyhq.com ("Cloud Engineer" OR Kubernetes OR K8s OR Terraform OR "Infrastructure as Code" OR IaC OR GitOps) (remote OR "Remote")'
     enabled: true
 
-  - name: Ashby — AI Engineer
-    query: 'site:jobs.ashbyhq.com "AI Engineer" OR "LLM Engineer" OR "Forward Deployed" remote'
-    enabled: true
-
-  - name: Ashby — Agentic
-    query: 'site:jobs.ashbyhq.com "Agentic" OR "AI Agent" OR "Automation Architect" remote'
+  - name: Ashby — MLOps / LLMOps / AI Platform
+    query: 'site:jobs.ashbyhq.com (MLOps OR LLMOps OR "AI Platform" OR "ML Platform" OR "Model Serving" OR Inference) (remote OR "Remote")'
     enabled: true
 
   # -- Greenhouse --
-  - name: Greenhouse — AI PM
-    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "AI Product Manager" OR "Senior Product Manager" AI remote'
+  - name: Greenhouse — DevOps / SRE / Platform
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io ("DevOps" OR "SRE" OR "Site Reliability" OR "Platform Engineer" OR "Infrastructure Engineer") remote'
     enabled: true
 
-  - name: Greenhouse — SA & FDE
-    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Solutions Architect" OR "Forward Deployed" AI remote'
+  - name: Greenhouse — Cloud / Kubernetes / Terraform
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io ("Cloud Engineer" OR Kubernetes OR K8s OR Terraform OR IaC OR GitOps OR Observability) remote'
     enabled: true
 
-  - name: Greenhouse — AI Engineer
-    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "AI Engineer" OR "LLM" OR "Agentic" remote'
+  - name: Greenhouse — MLOps / LLMOps / AI Platform
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io (MLOps OR LLMOps OR "AI Platform" OR "ML Platform" OR "Model Serving" OR Inference OR GPU) remote'
     enabled: true
 
   # -- Workable --
-  - name: Workable — AI Roles
-    query: 'site:apply.workable.com "AI" "Product Manager" OR "Solutions Architect" OR "AI Engineer" remote'
+  - name: Workable — DevOps / SRE / Cloud
+    query: 'site:apply.workable.com ("DevOps" OR "SRE" OR "Site Reliability" OR "Cloud Engineer" OR "Platform Engineer") remote'
     enabled: true
 
   # -- No-Code / Low-Code / Automation --
@@ -815,7 +829,7 @@ tracked_companies:
   - name: Perplexity
     careers_url: https://jobs.ashbyhq.com/perplexity
     scan_method: websearch
-    scan_query: ‘site:jobs.ashbyhq.com/perplexity "AI" OR "Applied AI" OR "Forward Deployed" OR "Engineer"’
+    scan_query: 'site:jobs.ashbyhq.com/perplexity "AI" OR "Applied AI" OR "Forward Deployed" OR "Engineer"'
     notes: "AI-native search and enterprise AI platform."
     enabled: true
 
@@ -894,3 +908,4 @@ tracked_companies:
     scan_query: '"Maxim AI" OR "getmaxim" careers "engineer" OR "product"'
     notes: "AI evaluation and observability platform. Bangalore-based, mostly on-site."
     enabled: true
+

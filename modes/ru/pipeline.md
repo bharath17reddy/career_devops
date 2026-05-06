@@ -1,58 +1,57 @@
-# Режим: pipeline — Очередь URL (Second Brain)
+# Modo: pipeline — Inbox de URLs (Second Brain)
 
-Обрабатывает URL вакансий из `data/pipeline.md`. Пользователь добавляет URL когда угодно, затем запускает `/career-ops pipeline` для обработки.
+Procesa URLs de ofertas acumuladas en `data/pipeline.md`. El usuario agrega URLs cuando quiera y luego ejecuta `/career-ops pipeline` para procesarlas todas.
 
 ## Workflow
 
-1. **Прочитать** `data/pipeline.md` → найти `- [ ]` в секции "Ожидающие" (или "Pendientes" / "Pending" — pipeline.md может содержать заголовки на любом языке)
-2. **Для каждого URL**:
-   a. Вычислить следующий `REPORT_NUM` (прочитать `reports/`, взять макс + 1)
-   b. **Извлечь JD** через Playwright → WebFetch → WebSearch
-   c. Если URL недоступен → пометить `- [!]` с заметкой, продолжить
-   d. **Выполнить auto-pipeline**: Оценка A-F → Отчёт .md → PDF (если балл >= 3.0) → Трекер
-   e. **Переместить из "Ожидающие" в "Обработанные"**: `- [x] #NNN | URL | Компания | Роль | Балл/5 | PDF ✅/❌`
-3. **Если 3+ URL**, запустить агентов параллельно (Agent tool с `run_in_background`). **Ограничение:** Playwright требует ресурсов — использовать **только один** Playwright-агент одновременно (правило `_shared.md`). Все прочие шаги (WebFetch, оценка, генерация отчёта) допускают полную параллелизацию. Рекомендуемая схема: один агент с Playwright верифицирует активность вакансии; остальные агенты получают JD через WebFetch и параллельно проводят оценку.
-4. **По завершении** показать таблицу:
+1. **Leer** `data/pipeline.md` → buscar items `- [ ]` en la sección "Pendientes"
+2. **Para cada URL pendiente**:
+   a. Calcular siguiente `REPORT_NUM` secuencial (leer `reports/`, tomar el número más alto + 1)
+   b. **Extraer JD** usando Playwright (browser_navigate + browser_snapshot) → WebFetch → WebSearch
+   c. Si la URL no es accesible → marcar como `- [!]` con nota y continuar
+   d. **Ejecutar auto-pipeline completo**: Evaluación A-F → Report .md → PDF (si score >= 3.0) → Tracker
+   e. **Mover de "Pendientes" a "Procesadas"**: `- [x] #NNN | URL | Empresa | Rol | Score/5 | PDF ✅/❌`
+3. **Si hay 3+ URLs pendientes**, lanzar agentes en paralelo (Agent tool con `run_in_background`) para maximizar velocidad.
+4. **Al terminar**, mostrar tabla resumen:
 
 ```
-| # | Компания | Роль | Балл | PDF | Рекомендуемое действие |
+| # | Empresa | Rol | Score | PDF | Acción recomendada |
 ```
 
-## Формат pipeline.md
+## Formato de pipeline.md
 
 ```markdown
-## Ожидающие
+## Pendientes
 - [ ] https://jobs.example.com/posting/123
-- [ ] https://hh.ru/vacancy/12345678 | Компания | Senior Backend
-- [!] https://private.url/job — Ошибка: требуется авторизация
+- [ ] https://boards.greenhouse.io/company/jobs/456 | Company Inc | Senior PM
+- [!] https://private.url/job — Error: login required
 
-## Обработанные
+## Procesadas
 - [x] #143 | https://jobs.example.com/posting/789 | Acme Corp | AI PM | 4.2/5 | PDF ✅
-- [x] #144 | https://hh.ru/vacancy/87654321 | BigCo | Backend | 2.1/5 | PDF ❌
+- [x] #144 | https://boards.greenhouse.io/xyz/jobs/012 | BigCo | SA | 2.1/5 | PDF ❌
 ```
 
-## Определение JD из URL
+## Detección inteligente de JD desde URL
 
-1. **Playwright (предпочтительно):** `browser_navigate` + `browser_snapshot`. Работает со всеми SPA.
-2. **WebFetch (fallback):** Для статических страниц.
-3. **WebSearch (последний ресурс):** Поиск на вторичных порталах.
+1. **Playwright (preferido):** `browser_navigate` + `browser_snapshot`. Funciona con todas las SPAs.
+2. **WebFetch (fallback):** Para páginas estáticas o cuando Playwright no está disponible.
+3. **WebSearch (último recurso):** Buscar en portales secundarios que indexan el JD.
 
-**Особые случаи:**
-- **hh.ru**: API доступен: `https://api.hh.ru/vacancies/{id}` — JSON с полным описанием
-- **LinkedIn**: Может требовать логин → пометить `[!]`, попросить вставить текст
-- **PDF**: Если URL на PDF — прочитать через Read tool
-- **`local:` префикс**: Читать локальный файл. Пример: `local:jds/company-role.md`
+**Casos especiales:**
+- **LinkedIn**: Puede requerir login → marcar `[!]` y pedir al usuario que pegue el texto
+- **PDF**: Si la URL apunta a un PDF, leerlo directamente con Read tool
+- **`local:` prefix**: Leer el archivo local. Ejemplo: `local:jds/linkedin-pm-ai.md` → leer `jds/linkedin-pm-ai.md`
 
-## Нумерация
+## Numeración automática
 
-1. Список файлов в `reports/`
-2. Извлечь номер из префикса
-3. Новый номер = максимум + 1
+1. Listar todos los archivos en `reports/`
+2. Extraer el número del prefijo (e.g., `142-medispend...` → 142)
+3. Nuevo número = máximo encontrado + 1
 
-## Синхронизация источников
+## Sincronización de fuentes
 
-Перед обработкой URL:
+Antes de procesar cualquier URL, verificar sync:
 ```bash
 node cv-sync-check.mjs
 ```
-Если рассинхронизация — предупредить пользователя.
+Si hay desincronización, advertir al usuario antes de continuar.

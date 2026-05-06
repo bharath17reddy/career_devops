@@ -1,161 +1,212 @@
 # Career-Ops
 
-[English](README.md) | [Español](README.es.md) | [Português (Brasil)](README.pt-BR.md) | [한국어](README.ko-KR.md) | [日本語](README.ja.md) | [Русский](README.ru.md) | [简体中文](README.cn.md) | [繁體中文](README.zh-TW.md)
+<p align="center">
+  <a href="https://x.com/santifer"><img src="docs/hero-banner.jpg" alt="Career-Ops — Multi-Agent Job Search System" width="800"></a>
+</p>
 
-> *Я месяцами откликался на вакансии вручную. И создал систему, которую хотел бы иметь с самого начала.*
-> Компании используют ИИ для фильтрации кандидатов. **Я дал кандидатам ИИ, чтобы *выбирать* компании.**
-> *Теперь это open source.*
+<p align="center">
+  <em>I spent months applying to jobs the hard way. So I engineered the system I wish I had.</em><br>
+  Companies use AI to filter candidates. <strong>I just gave candidates AI to <em>choose</em> companies.</strong><br>
+  <em>Now it's open source.</em>
+</p>
 
-[![Claude Code](https://img.shields.io/badge/Claude_Code-000?style=flat&logo=anthropic&logoColor=white)](https://claude.ai)
-[![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)](https://nodejs.org)
-[![Go](https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white)](https://go.dev)
-[![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+<p align="center">
+  <img src="https://img.shields.io/badge/Claude_Code-000?style=flat&logo=anthropic&logoColor=white" alt="Claude Code">
+  <img src="https://img.shields.io/badge/OpenCode-111827?style=flat&logo=terminal&logoColor=white" alt="OpenCode">
+  <img src="https://img.shields.io/badge/Gemini_CLI-4285F4?style=flat&logo=google&logoColor=white" alt="Gemini CLI">
+  <img src="https://img.shields.io/badge/Codex_(soon)-6B7280?style=flat&logo=openai&logoColor=white" alt="Codex">
+  <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white" alt="Node.js">
+  <img src="https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white" alt="Go">
+  <img src="https://img.shields.io/badge/Playwright-2EAD33?style=flat&logo=playwright&logoColor=white" alt="Playwright">
+  <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT">
+  <a href="https://discord.gg/8pRpHETxa4"><img src="https://img.shields.io/badge/Discord-5865F2?style=flat&logo=discord&logoColor=white" alt="Discord"></a>
+</p>
 
 ---
 
-**740+ вакансий оценено · 100+ персонализированных резюме · 1 позиция мечты получена**
+<p align="center">
+  <img src="docs/demo.gif" alt="Career-Ops Demo" width="800">
+</p>
 
-## Что это
+<p align="center"><strong>740+ job listings evaluated · 100+ personalized CVs · 1 dream role landed</strong></p>
 
-Career-Ops превращает любой AI-CLI в полноценный командный центр для поиска работы. Вместо ручного ведения таблиц с откликами вы получаете ИИ-пайплайн, который:
+<p align="center"><a href="https://discord.gg/8pRpHETxa4"><img src="https://img.shields.io/badge/Join_the_community-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a></p>
 
-- **Оценивает вакансии** по структурированной системе A–F (10 взвешенных параметров)
-- **Генерирует персонализированные PDF-резюме** — оптимизированные под ATS, адаптированные под каждую вакансию
-- **Сканирует порталы** автоматически (Greenhouse, Ashby, Lever и др.; российские площадки настраиваются в `portals.yml`)
-- **Пакетная обработка** — оценка 10+ вакансий параллельно через суб-агентов
-- **Трекает всё** в единой точке правды с проверками целостности
+## What Is This
 
-> **Важно: это НЕ инструмент для массовой рассылки.** Career-ops — это фильтр. Он помогает найти те немногие вакансии, которые стоят вашего времени, из сотен. Система настоятельно рекомендует не откликаться на вакансии с оценкой ниже 4.0/5. Ваше время ценно, как и время рекрутера. Всегда проверяйте перед отправкой.
+Career-Ops turns any AI coding CLI into a full job search command center. Instead of manually tracking applications in a spreadsheet, you get an AI-powered pipeline that:
 
-## Возможности
+- **Evaluates offers** with a structured A-F scoring system (10 weighted dimensions)
+- **Generates tailored PDFs** -- ATS-optimized CVs customized per job description
+- **Scans portals** automatically (Greenhouse, Ashby, Lever, company pages)
+- **Processes in batch** -- evaluate 10+ offers in parallel with sub-agents
+- **Tracks everything** in a single source of truth with integrity checks
 
-| Функция | Описание |
-|---|---|
-| **Авто-пайплайн** | Вставь URL → получи оценку + PDF + запись в трекере |
-| **6-блочная оценка** | Резюме роли, совпадение с CV, стратегия грейда, исследование компенсации, персонализация, подготовка к интервью (STAR+R) |
-| **Банк историй для интервью** | Накапливает STAR+Reflection истории — 5–10 мастер-историй, которые закрывают любой поведенческий вопрос |
-| **Скрипты переговоров** | Фреймворки зарплатных переговоров, отстаивание рыночной ставки, использование конкурирующих офферов |
-| **ATS PDF-генерация** | Резюме с инъекцией ключевых слов, дизайн Space Grotesk + DM Sans |
-| **Сканер порталов** | 45+ предустановленных компаний (международный рынок) + российские площадки (hh.ru, Хабр Карьера, trudvsem.ru и др.) — добавляются вручную в `portals.yml` |
-| **Пакетная обработка** | Параллельная оценка через `claude -p` воркеры |
-| **Dashboard TUI** | Терминальный UI для просмотра, фильтрации и сортировки пайплайна |
-| **Human-in-the-Loop** | ИИ оценивает и рекомендует, вы решаете и действуете. Система никогда не отправляет отклик сама |
-| **Целостность пайплайна** | Автоматический merge, дедупликация, нормализация статусов, проверки здоровья |
+> **Important: This is NOT a spray-and-pray tool.** Career-ops is a filter -- it helps you find the few offers worth your time out of hundreds. The system strongly recommends against applying to anything scoring below 4.0/5. Your time is valuable, and so is the recruiter's. Always review before submitting.
 
-## Быстрый старт
+Career-ops is agentic: Claude Code navigates career pages with Playwright, evaluates fit by reasoning about your CV vs the job description (not keyword matching), and adapts your resume per listing.
+
+> **Heads up: the first evaluations won't be great.** The system doesn't know you yet. Feed it context -- your CV, your career story, your proof points, your preferences, what you're good at, what you want to avoid. The more you nurture it, the better it gets. Think of it as onboarding a new recruiter: the first week they need to learn about you, then they become invaluable.
+
+Built by someone who used it to evaluate 740+ job offers, generate 100+ tailored CVs, and land a Head of Applied AI role. [Read the full case study](https://santifer.io/career-ops-system).
+
+## Features
+
+| Feature | Description |
+|---------|-------------|
+| **Auto-Pipeline** | Paste a URL, get a full evaluation + PDF + tracker entry |
+| **6-Block Evaluation** | Role summary, CV match, level strategy, comp research, personalization, interview prep (STAR+R) |
+| **Interview Story Bank** | Accumulates STAR+Reflection stories across evaluations -- 5-10 master stories that answer any behavioral question |
+| **Negotiation Scripts** | Salary negotiation frameworks, geographic discount pushback, competing offer leverage |
+| **ATS PDF Generation** | Keyword-injected CVs with Space Grotesk + DM Sans design |
+| **Portal Scanner** | 45+ companies pre-configured (Anthropic, OpenAI, ElevenLabs, Retool, n8n...) + custom queries across Ashby, Greenhouse, Lever, Wellfound |
+| **Batch Processing** | Parallel evaluation with `claude -p` workers |
+| **Dashboard TUI** | Terminal UI to browse, filter, and sort your pipeline |
+| **Human-in-the-Loop** | AI evaluates and recommends, you decide and act. The system never submits an application -- you always have the final call |
+| **Pipeline Integrity** | Automated merge, dedup, status normalization, health checks |
+
+## Quick Start
 
 ```bash
-# 1. Клонируй и установи
+# 1. Clone and install
 git clone https://github.com/santifer/career-ops.git
 cd career-ops && npm install
-npx playwright install chromium   # Для генерации PDF
+npx playwright install chromium   # Required for PDF generation
 
-# 2. Проверь настройки
-npm run doctor                     # Валидация всех зависимостей
+# 2. Check setup
+npm run doctor                     # Validates all prerequisites
 
-# 3. Настрой
-cp config/profile.example.yml config/profile.yml  # Заполни свои данные
-cp templates/portals.example.yml portals.yml       # Настрой компании
+# 3. Configure
+cp config/profile.example.yml config/profile.yml  # Edit with your details
+cp templates/portals.example.yml portals.yml       # Customize companies
 
-# 4. Добавь своё CV
-# Создай cv.md в корне проекта с резюме в формате Markdown
+# 4. Add your CV
+# Create cv.md in the project root with your CV in markdown
 
-# 5. Персонализируй через Claude
-claude   # Открой Claude Code в директории проекта
+# 5. Personalize with Claude
+claude   # Open Claude Code in this directory
 
-# Попроси Claude адаптировать систему:
-# "Смени архетипы на backend-разработку PHP/Go"
-# "Переведи режимы на русский"  
-# "Добавь эти 5 компаний в portals.yml"
-# "Обнови мой профиль из этого CV"
+# Then ask Claude to adapt the system to you:
+# "Change the archetypes to backend engineering roles"
+# "Translate the modes to English"
+# "Add these 5 companies to portals.yml"
+# "Update my profile with this CV I'm pasting"
 
-# 6. Начинай
-# Вставь URL вакансии или запусти /career-ops
+# 6. Start using
+# Paste a job URL or run /career-ops
 ```
 
-## Использование
+> **The system is designed to be customized by Claude itself.** Modes, archetypes, scoring weights, negotiation scripts -- just ask Claude to change them. It reads the same files it uses, so it knows exactly what to edit.
 
-Career-ops — одна slash-команда с множеством режимов:
+See [docs/SETUP.md](docs/SETUP.md) for the full setup guide.
+
+## Gemini CLI Integration
+
+Career-ops supports [Gemini CLI](https://github.com/google-gemini/gemini-cli) natively — the same way it supports Claude Code and OpenCode. All 15 slash commands are available, using the same `modes/*.md` evaluation logic.
+
+### Option A — Native Gemini CLI (Recommended)
+
+```bash
+# 1. Install Gemini CLI
+npm install -g @google/gemini-cli
+# or: npx @google/gemini-cli --version
+
+# 2. Authenticate (free — uses your Google account)
+gemini auth
+
+# 3. Run in the career-ops directory
+cd career-ops
+gemini
+
+# 4. Use slash commands just like Claude Code
+/career-ops "Senior AI Engineer at Anthropic..."
+/career-ops-evaluate --file ./jds/openai.txt
+/career-ops-scan
+/career-ops-pdf
+/career-ops-tracker
+```
+
+The `GEMINI.md` file is auto-loaded as context. All 15 commands are defined in `.gemini/commands/*.toml`.
+
+### Option B — Standalone API Script (No CLI install needed)
+
+```bash
+# 1. Get a free API key at https://aistudio.google.com/apikey
+cp .env.example .env
+# Edit .env → set GEMINI_API_KEY=your_key_here
+
+# 2. Install dependencies
+npm install
+
+# 3. Evaluate a job description
+node gemini-eval.mjs "We are looking for a Senior AI Engineer..."
+node gemini-eval.mjs --file ./jds/my-job.txt
+npm run gemini:eval -- "JD text here"
+```
+
+> **Free tier:** Both options work without billing. Native CLI uses Google OAuth; the API script uses `gemini-2.0-flash` (15 RPM, 1M tokens/day free).
+
+## Usage
+
+Career-ops is a single slash command with multiple modes:
 
 ```
-/career-ops                       → Показать все доступные команды
-/career-ops {вставь описание JD}  → Полный авто-пайплайн (оценка + PDF + трекер)
-/career-ops scan                  → Сканирование порталов
-/career-ops pdf                   → Генерация ATS-резюме
-/career-ops batch                 → Пакетная оценка вакансий
-/career-ops tracker               → Статус откликов
-/career-ops apply                 → Заполнение форм отклика с ИИ
-/career-ops pipeline              → Обработка очереди URL
-/career-ops contacto              → Сообщение в LinkedIn
-/career-ops deep                  → Глубокий анализ компании
-/career-ops training              → Оценка курса/сертификации
-/career-ops project               → Оценка портфолио-проекта
+/career-ops                → Show all available commands
+/career-ops {paste a JD}   → Full auto-pipeline (evaluate + PDF + tracker)
+/career-ops scan           → Scan portals for new offers
+/career-ops pdf            → Generate ATS-optimized CV
+/career-ops batch          → Batch evaluate multiple offers
+/career-ops tracker        → View application status
+/career-ops apply          → Fill application forms with AI
+/career-ops pipeline       → Process pending URLs
+/career-ops contacto       → LinkedIn outreach message
+/career-ops deep           → Deep company research
+/career-ops training       → Evaluate a course/cert
+/career-ops project        → Evaluate a portfolio project
 ```
 
-Или просто вставь URL вакансии — career-ops автоматически определит его и запустит полный пайплайн.
+Or just paste a job URL or description directly -- career-ops auto-detects it and runs the full pipeline.
 
-## Как это работает
+## How It Works
 
 ```
-Вставляешь URL вакансии или описание
+You paste a job URL or description
         │
         ▼
 ┌──────────────────┐
-│  Определение     │  Классификация: Backend / Frontend / DevOps / PM / SA / ML
-│  архетипа        │
+│  Archetype       │  Classifies: LLMOps / Agentic / PM / SA / FDE / Transformation
+│  Detection       │
 └────────┬─────────┘
          │
-┌────────┼─────────┐
-│  Оценка A–F      │  Совпадение, пробелы, исследование компенсации, STAR-истории
-│  (читает cv.md)  │
+┌────────▼─────────┐
+│  A-F Evaluation  │  Match, gaps, comp research, STAR stories
+│  (reads cv.md)   │
 └────────┬─────────┘
          │
-    ┌────┼─────┐
-    ▼    ▼     ▼
- Отчёт  PDF  Трекер
+    ┌────┼────┐
+    ▼    ▼    ▼
+ Report  PDF  Tracker
   .md   .pdf   .tsv
 ```
 
-## 🇷🇺 Российские площадки
+## Pre-configured Portals
 
-Career-ops поддерживает ключевые российские джоб-борды:
-
-| Площадка | URL | Тип | Особенности |
-|---|---|---|---|
-| **HeadHunter** | [hh.ru](https://hh.ru) | API + Web | Главная площадка РФ. Открытый API. 600k+ IT-вакансий |
-| **Хабр Карьера** | [career.habr.com](https://career.habr.com) | Web | IT-вакансии, грейды, зарплатные вилки, техническое комьюнити |
-| **Работа в России** | [trudvsem.ru](https://trudvsem.ru) | API + Web | Госпортал Роструда. Открытый API для массового парсинга |
-| **Rabota.ru** | [rabota.ru](https://rabota.ru) | Web | Принадлежит Сберу. Крупные компании, финтех |
-| **Superjob** | [superjob.ru](https://www.superjob.ru) | Web | Вторая по величине после hh.ru |
-| **Geekjob** | [geekjob.ru](https://geekjob.ru) | Web | IT-вакансии с указанием вилок |
-| **Буду** | [budu.jobs](https://budu.jobs) | Web | IT-вакансии, бывший Хантфлоу |
-
-**Telegram-каналы** (мониторинг вручную): @devjobs, @frontendjob, @gophersjob, @phpjobsru, @remote_it
-
-### Особенности российского рынка в оценке
-
-- **Зарплата**: gross (до НДФЛ 13%) vs net (на руки) — система учитывает разницу
-- **Оформление**: ТК РФ, ГПХ, самозанятость — влияет на оценку стабильности
-- **Бенефиты**: ДМС, ДМС стомат., компенсация питания/спорта/обучения
-- **Испытательный срок**: до 3 мес. (6 мес. для руководителей по ТК РФ)
-- **Отпуск**: 28 календарных дней минимум по ТК + доп. дни
-
-## Настройка порталов
-
-Сканер работает с `portals.yml`. Скопируйте шаблон и добавьте нужные компании и российские площадки:
+The scanner comes with **45+ companies** ready to scan and **19 search queries** across major job boards. Copy `templates/portals.example.yml` to `portals.yml` and add your own:
 
 **AI Labs:** Anthropic, OpenAI, Mistral, Cohere, LangChain, Pinecone
-**Voice AI:** ElevenLabs, PolyAI, Parloa, Hume AI, Deepgram
-**AI Platforms:** Retool, Airtable, Vercel, Temporal, Glean
+**Voice AI:** ElevenLabs, PolyAI, Parloa, Hume AI, Deepgram, Vapi, Bland AI
+**AI Platforms:** Retool, Airtable, Vercel, Temporal, Glean, Arize AI
+**Contact Center:** Ada, LivePerson, Sierra, Decagon, Talkdesk, Genesys
+**Enterprise:** Salesforce, Twilio, Gong, Dialpad
+**LLMOps:** Langfuse, Weights & Biases, Lindy, Cognigy, Speechmatics
 **Automation:** n8n, Zapier, Make.com
+**European:** Factorial, Attio, Tinybird, Clarity AI, Travelperk
 
-**🇷🇺 Россия:** Добавьте вручную в `portals.yml`: hh.ru, Хабр Карьера, trudvsem.ru, rabota.ru, Superjob, Geekjob — используйте структуру `templates/portals.example.yml` как образец формата (готовых RU-записей в шаблоне нет).
-
-**Джоб-борды:** Ashby, Greenhouse, Lever, Wellfound, Workable (поддерживаются через WebSearch/WebFetch)
+**Job boards searched:** Ashby, Greenhouse, Lever, Wellfound, Workable, RemoteFront
 
 ## Dashboard TUI
 
-Встроенный терминальный дашборд для визуального просмотра пайплайна:
+The built-in terminal dashboard lets you browse your pipeline visually:
 
 ```bash
 cd dashboard
@@ -163,57 +214,101 @@ go build -o career-dashboard .
 ./career-dashboard --path ..
 ```
 
-Возможности: 6 табов фильтрации, 4 режима сортировки, группированный/плоский вид, ленивая подгрузка превью, смена статусов inline.
+Features: 6 filter tabs, 4 sort modes, grouped/flat view, lazy-loaded previews, inline status changes.
 
-## Структура проекта
+## Project Structure
 
 ```
 career-ops/
-├── CLAUDE.md                    # Инструкции для агента
-├── cv.md                        # Ваше CV (создайте)
+├── CLAUDE.md                    # Agent instructions
+├── cv.md                        # Your CV (create this)
+├── article-digest.md            # Your proof points (optional)
 ├── config/
-│   └── profile.example.yml      # Шаблон профиля
-├── modes/                       # 14 режимов навыков
-│   ├── _shared.md               # Общий контекст
-│   ├── oferta.md                # Оценка вакансии
-│   ├── pdf.md                   # Генерация PDF
-│   ├── scan.md                  # Сканер порталов
-│   ├── batch.md                 # Пакетная обработка
-│   ├── ru/                      # 🇷🇺 Русские режимы (6 файлов)
+│   └── profile.example.yml      # Template for your profile
+├── modes/                       # 14 skill modes
+│   ├── _shared.md               # Shared context (customize this)
+│   ├── oferta.md                # Single evaluation
+│   ├── pdf.md                   # PDF generation
+│   ├── scan.md                  # Portal scanner
+│   ├── batch.md                 # Batch processing
 │   └── ...
 ├── templates/
-│   ├── cv-template.html         # ATS-шаблон резюме
-│   ├── portals.example.yml      # Конфигурация сканера
-│   └── states.yml               # Канонические статусы
-├── batch/                       # Пакетная обработка
-├── dashboard/                   # Go TUI
-├── data/                        # Данные трекинга (gitignored)
-├── reports/                     # Отчёты оценки (gitignored)
-├── output/                      # Сгенерированные PDF (gitignored)
+│   ├── cv-template.html         # ATS-optimized CV template
+│   ├── portals.example.yml      # Scanner config template
+│   └── states.yml               # Canonical statuses
+├── batch/
+│   ├── batch-prompt.md          # Self-contained worker prompt
+│   └── batch-runner.sh          # Orchestrator script
+├── dashboard/                   # Go TUI pipeline viewer
+├── data/                        # Your tracking data (gitignored)
+├── reports/                     # Evaluation reports (gitignored)
+├── output/                      # Generated PDFs (gitignored)
 ├── fonts/                       # Space Grotesk + DM Sans
-├── docs/                        # Документация
-└── examples/                    # Примеры CV, отчётов
+├── docs/                        # Setup, customization, architecture
+└── examples/                    # Sample CV, report, proof points
 ```
 
-## Технологии
+## Tech Stack
 
-- **Агент**: Claude Code с кастомными навыками и режимами
-- **PDF**: Playwright + HTML-шаблон
-- **Сканер**: Playwright + Greenhouse API + WebSearch
-- **Dashboard**: Go + Bubble Tea + Lipgloss (тема Catppuccin Mocha)
-- **Данные**: Markdown-таблицы + YAML-конфиг + TSV-файлы батчей
+![Claude Code](https://img.shields.io/badge/Claude_Code-000?style=flat&logo=anthropic&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
+![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat&logo=playwright&logoColor=white)
+![Go](https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white)
+![Bubble Tea](https://img.shields.io/badge/Bubble_Tea-FF75B5?style=flat&logo=go&logoColor=white)
 
-## Дисклеймер
+- **Agent**: Claude Code with custom skills and modes
+- **PDF**: Playwright/Puppeteer + HTML template
+- **Scanner**: Playwright + Greenhouse API + WebSearch
+- **Dashboard**: Go + Bubble Tea + Lipgloss (Catppuccin Mocha theme)
+- **Data**: Markdown tables + YAML config + TSV batch files
 
-**career-ops — локальный open-source инструмент, НЕ хостинг-сервис.** Используя это ПО, вы подтверждаете:
+## Also Open Source
 
-1. **Вы контролируете свои данные.** CV, контакты и персональные данные остаются на вашей машине и отправляются напрямую выбранному AI-провайдеру (Anthropic, OpenAI и др.). Мы не собираем и не храним ваши данные.
-2. **Вы контролируете ИИ.** Промты по умолчанию запрещают ИИ автоматически отправлять отклики, но модели могут вести себя непредсказуемо. Модификация промтов — на ваш риск. **Всегда проверяйте сгенерированный контент перед отправкой.**
-3. **Соблюдайте ToS площадок.** Используйте инструмент в соответствии с правилами порталов (hh.ru, Хабр Карьера, LinkedIn и др.). Не спамьте работодателей.
-4. **Нет гарантий.** Оценки — рекомендации, не истина. ИИ может галлюцинировать. Авторы не несут ответственности за результаты трудоустройства.
+- **[cv-santiago](https://github.com/santifer/cv-santiago)** -- The portfolio website (santifer.io) with AI chatbot, LLMOps dashboard, and case studies. If you need a portfolio to showcase alongside your job search, fork it and make it yours.
 
-Подробнее: [LEGAL_DISCLAIMER.md](LEGAL_DISCLAIMER.md). ПО распространяется по [лицензии MIT](LICENSE) «как есть», без каких-либо гарантий.
+## About the Author
 
-## Лицензия
+I'm Santiago -- Head of Applied AI, former founder (built and sold a business that still runs with my name on it). I built career-ops to manage my own job search. It worked: I used it to land my current role.
+
+My portfolio and other open source projects → [santifer.io](https://santifer.io)
+
+## Star History
+
+<a href="https://www.star-history.com/?repos=santifer%2Fcareer-ops&type=timeline&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=santifer/career-ops&type=timeline&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=santifer/career-ops&type=timeline&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=santifer/career-ops&type=timeline&legend=top-left" />
+ </picture>
+</a>
+
+## Disclaimer
+
+**career-ops is a local, open-source tool — NOT a hosted service.** By using this software, you acknowledge:
+
+1. **You control your data.** Your CV, contact info, and personal data stay on your machine and are sent directly to the AI provider you choose (Anthropic, OpenAI, etc.). We do not collect, store, or have access to any of your data.
+2. **You control the AI.** The default prompts instruct the AI not to auto-submit applications, but AI models can behave unpredictably. If you modify the prompts or use different models, you do so at your own risk. **Always review AI-generated content for accuracy before submitting.**
+3. **You comply with third-party ToS.** You must use this tool in accordance with the Terms of Service of the career portals you interact with (Greenhouse, Lever, Workday, LinkedIn, etc.). Do not use this tool to spam employers or overwhelm ATS systems.
+4. **No guarantees.** Evaluations are recommendations, not truth. AI models may hallucinate skills or experience. The authors are not liable for employment outcomes, rejected applications, account restrictions, or any other consequences.
+
+See [LEGAL_DISCLAIMER.md](LEGAL_DISCLAIMER.md) for full details. This software is provided under the [MIT License](LICENSE) "as is", without warranty of any kind.
+
+## Contributors
+
+<a href="https://github.com/santifer/career-ops/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=santifer/career-ops" />
+</a>
+
+Got hired using career-ops? [Share your story!](https://github.com/santifer/career-ops/issues/new?template=i-got-hired.yml)
+
+## License
 
 MIT
+
+## Let's Connect
+
+[![Website](https://img.shields.io/badge/santifer.io-000?style=for-the-badge&logo=safari&logoColor=white)](https://santifer.io)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/santifer)
+[![X](https://img.shields.io/badge/X-000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/santifer)
+[![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/8pRpHETxa4)
+[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:hi@santifer.io)
